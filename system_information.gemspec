@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
    used by monitoring services such as New Relic and load balancer checks.
   TEXT
   spec.homepage      = "https://github.com/ca-cwds"
-  spec.license       = "AGPL-3.0-or-later"
+  spec.license       = "AGPL-3.0"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
