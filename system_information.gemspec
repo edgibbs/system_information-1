@@ -7,12 +7,15 @@ Gem::Specification.new do |spec|
   spec.name          = "system_information"
   spec.version       = SystemInformation::VERSION
   spec.authors       = ["Ed Gibbs"]
-  spec.email         = ["edward_gibbs@yahoo.com"]
+  spec.email         = ["ed@edgibbs.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
-  spec.license       = "MIT"
+  spec.summary       = "A gem to provide health checks for CWDS products"
+  spec.description   = <<-TEXT
+   Adds a /system-information endpoint to perform health checks. Designed to be
+   used by monitoring services such as New Relic and load balancer checks.
+  TEXT
+  spec.homepage      = "https://github.com/ca-cwds"
+  spec.license       = "AGPL-3.0-or-later"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
@@ -32,7 +35,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 1.17.a"
+  spec.add_development_dependency "bundler", "~> 1.17.1"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
 end
