@@ -9,6 +9,7 @@ describe SystemInformation do
 
   describe ".configuration" do
     it 'has a configration' do
+      SystemInformation.reset
       allow(SystemInformation::Configuration).to receive(:new).and_return(configuration)
       expect(SystemInformation.configuration).to eq configuration
     end

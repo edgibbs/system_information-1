@@ -5,8 +5,7 @@ module SystemInformation
     describe "#checks" do
       context "with just defaults set" do
         it 'returns an empty array' do
-          SystemInformation.configure do |config|
-          end
+          SystemInformation.configure { |config| }
           expect(SystemInformation.configuration.checks).to eq []
         end
       end
