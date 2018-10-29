@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe SystemInformation do
@@ -7,7 +9,7 @@ describe SystemInformation do
     SystemInformation.reset
   end
 
-  describe ".configuration" do
+  describe '.configuration' do
     it 'has a configration' do
       SystemInformation.reset
       allow(SystemInformation::Configuration).to receive(:new).and_return(configuration)

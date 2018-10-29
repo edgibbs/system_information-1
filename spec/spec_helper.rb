@@ -1,5 +1,7 @@
-require "bundler/setup"
-require "system_information"
+# frozen_string_literal: true
+
+require 'bundler/setup'
+require 'system_information'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |c|
