@@ -4,8 +4,8 @@ module SystemInformation
   class RedisHealthCheck
     include HealthCheckErrors
 
-    def initialize(redis = Redis.new(url: 'redis://localhost:6379'))
-      @redis = redis
+    def initialize(url = 'redis://localhost:6379')
+      @redis = Redis.new(url: url)
     end
 
     def check

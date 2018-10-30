@@ -6,10 +6,11 @@ module SystemInformation
   describe RedisHealthCheck do
     describe '#check' do
       let(:redis) { instance_double('Redis') }
-      let(:redis_health_check) { RedisHealthCheck.new(redis) }
+      let(:redis_health_check) { RedisHealthCheck.new() }
 
       context 'when healthy' do
         before do
+          allow(Redis).to receive(:new).with(url: 'redis://localhost:6379').and_return(redis)
           allow(redis).to receive(:ping).with(no_args).and_return("PONG")
         end
 
@@ -24,6 +25,7 @@ module SystemInformation
 
       context 'when redis is down' do
         before do
+          allow(Redis).to receive(:new).with(url: 'redis://localhost:6379').and_return(redis)
           allow(redis).to receive(:ping).with(no_args).and_throw(Redis::CannotConnectError.new)
         end
 
