@@ -6,7 +6,7 @@ module SystemInformation
   class HealthChecker
     def check
       health_checks = []
-      SystemInformation.checks.each do |check|
+      SystemInformation.configuration.checks.each do |check|
         health_checks << checker_class(check[:name]).new(check[:url]).check
       end
       health_check_message = HealthCheckMessage.new(overall_health(health_checks), health_checks)
@@ -28,20 +28,5 @@ module SystemInformation
         redis: RedisHealthCheck
       }
     end
-
-    # def redis_check
-    #   item = HealthCheckItem.new(:redis, true)
-    #   begin
-    #     @redis.ping
-    #   rescue StandardError => error
-    #     set_error_status(item, error.message)
-    #   end
-    #   item
-    # end
-
-    # def set_error_status(item, message)
-    #   item.healthy = false
-    #   item.message = "#{item.name} returned #{message}"
-    # end
   end
 end

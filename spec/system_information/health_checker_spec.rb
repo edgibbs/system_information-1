@@ -9,9 +9,11 @@ module SystemInformation
     describe '#check' do
       let(:health_checker) { HealthChecker.new }
       let(:redis_health_check) { instance_double('SystemInformation::RedisHealthCheck') }
+      let(:configuration) { instance_double('SystemInformation::Configuration') }
 
       before do
-        allow(SystemInformation).to receive(:checks).and_return([ { name: :redis, url: 'redis://localhost:6379' } ])
+        allow(SystemInformation).to receive(:configuration).and_return(configuration)
+        allow(configuration).to receive(:checks).and_return([ { name: :redis, url: 'redis://localhost:6379' } ])
       end
 
       context 'when all services are up' do
