@@ -1,8 +1,12 @@
 # frozen_string_literal: true
 
 require 'system_information/configuration'
+require 'system_information/health_checker'
+require 'system_information/health_check_errors'
 require 'system_information/health_check_item'
 require 'system_information/health_check_message'
+require 'system_information/redis_health_check'
+require 'system_information/system_information_middleware'
 require 'system_information/version'
 
 module SystemInformation
