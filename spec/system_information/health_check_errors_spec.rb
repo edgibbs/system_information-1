@@ -3,7 +3,6 @@
 require 'spec_helper'
 
 module SystemInformation
-
   class HealthCheckErrorsTest
     include HealthCheckErrors
   end
@@ -14,12 +13,12 @@ module SystemInformation
       let(:health_check_errors_test) { HealthCheckErrorsTest.new }
 
       it 'sets item status to healthy' do
-        health_check_errors_test.set_error_status(health_check_item, "badness")
+        health_check_errors_test.set_error_status(health_check_item, 'badness')
         expect(health_check_item.healthy).to eq false
       end
 
       it 'sets message' do
-        health_check_errors_test.set_error_status(health_check_item, "badness")
+        health_check_errors_test.set_error_status(health_check_item, 'badness')
         expect(health_check_item.message).to eq 'redis returned badness'
       end
     end

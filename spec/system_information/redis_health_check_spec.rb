@@ -11,7 +11,7 @@ module SystemInformation
       context 'when healthy' do
         before do
           allow(Redis).to receive(:new).with(url: 'redis://localhost:6379').and_return(redis)
-          allow(redis).to receive(:ping).with(no_args).and_return("PONG")
+          allow(redis).to receive(:ping).with(no_args).and_return('PONG')
         end
 
         it 'returns a healthy status' do
@@ -24,6 +24,10 @@ module SystemInformation
       end
 
       context 'when redis is down' do
+        let(:error_message) do
+          'redis returned uncaught throw #<Redis::CannotConnectError: Redis::CannotConnectError>'
+        end
+
         before do
           allow(Redis).to receive(:new).with(url: 'redis://localhost:6379').and_return(redis)
           allow(redis).to receive(:ping).with(no_args).and_throw(Redis::CannotConnectError.new)
@@ -34,7 +38,7 @@ module SystemInformation
         end
 
         it 'sets an error message' do
-          expect(redis_health_check.check.message).to eq 'redis returned uncaught throw #<Redis::CannotConnectError: Redis::CannotConnectError>'
+          expect(redis_health_check.check.message).to eq error_message
         end
       end
     end

@@ -40,8 +40,15 @@ module SystemInformation
       end
 
       context 'when throwing an error' do
+        let(:error_message) do
+          'perry returned uncaught throw ' \
+           '#<Faraday::ConnectionFailed #<Faraday::ConnectionFailed: fail>>'
+        end
+
         before do
-          allow(Faraday).to receive(:get).with(perry_url).and_throw(Faraday::ConnectionFailed.new('Connection failed'))
+          allow(Faraday).to receive(:get)
+            .with(perry_url)
+            .and_throw(Faraday::ConnectionFailed.new('fail'))
         end
 
         it 'returns a healthy status' do
@@ -49,7 +56,7 @@ module SystemInformation
         end
 
         it 'sets an error message' do
-          expect(perry_health_check.check.message).to eq 'perry returned uncaught throw #<Faraday::ConnectionFailed #<Faraday::ConnectionFailed: Connection failed>>'
+          expect(perry_health_check.check.message) .to eq(error_message)
         end
       end
     end

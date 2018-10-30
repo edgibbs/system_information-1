@@ -13,13 +13,18 @@ module SystemInformation
 
       before do
         allow(SystemInformation).to receive(:configuration).and_return(configuration)
-        allow(configuration).to receive(:checks).and_return([ { name: :redis, url: 'redis://localhost:6379' } ])
+        allow(configuration).to receive(:checks)
+          .and_return([{ name: :redis, url: 'redis://localhost:6379' }])
       end
 
       context 'when all services are up' do
         before do
-          allow(RedisHealthCheck).to receive(:new).with('redis://localhost:6379').and_return(redis_health_check)
-          allow(redis_health_check).to receive(:check).with(no_args).and_return(HealthCheckItem.new(:redis, true))
+          allow(RedisHealthCheck).to receive(:new)
+            .with('redis://localhost:6379')
+            .and_return(redis_health_check)
+          allow(redis_health_check).to receive(:check)
+            .with(no_args)
+            .and_return(HealthCheckItem.new(:redis, true))
         end
 
         it'returns a 200 status code' do
@@ -40,8 +45,12 @@ module SystemInformation
 
       context 'when redis is down' do
         before do
-          allow(RedisHealthCheck).to receive(:new).with('redis://localhost:6379').and_return(redis_health_check)
-          allow(redis_health_check).to receive(:check).with(no_args).and_return(HealthCheckItem.new(:redis, false, Time.now, 'Redis::CannotConnectError'))
+          allow(RedisHealthCheck).to receive(:new)
+            .with('redis://localhost:6379')
+            .and_return(redis_health_check)
+          allow(redis_health_check).to receive(:check)
+            .with(no_args)
+            .and_return(HealthCheckItem.new(:redis, false, Time.now, 'Redis::CannotConnectError'))
         end
 
         it'returns a 465 status code' do
