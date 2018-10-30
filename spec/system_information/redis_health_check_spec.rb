@@ -6,7 +6,7 @@ module SystemInformation
   describe RedisHealthCheck do
     describe '#check' do
       let(:redis) { instance_double('Redis') }
-      let(:redis_health_check) { RedisHealthCheck.new() }
+      let(:redis_health_check) { RedisHealthCheck.new }
 
       context 'when healthy' do
         before do
