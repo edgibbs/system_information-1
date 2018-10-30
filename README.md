@@ -35,7 +35,7 @@ SystemInformation.configure do |config|
   config.checks =
     [
       { name: :redis, url: "redis://#{ENV.fetch('REDIS_HOST', 'localhost')}:#{ENV.fetch('REDIS_PORT', 6379)}" },
-      { name: :perry, url: "#ENV.fetch('BASE_PERRY_URL', 'http://localhost/perry')}/system-information" }
+      { name: :perry, url: "#{ENV.fetch('BASE_PERRY_URL', 'http://localhost/perry')}/system-information" }
     ]
 end
 ```
