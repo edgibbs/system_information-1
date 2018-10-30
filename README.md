@@ -30,14 +30,14 @@ and add a config block:
 
 ```ruby
 SystemInformation.configure do |config|
-  # Add all needed checks here following a keyname/url string pattern
-  config.checks = [ { redis: "redis://{ENV.fetch('REDIS_HOST', 'localhost')}:{ENV.fetch(REDIS_PORT, 6379)}" } ]
+  # Add all needed checks here following a symbol name/url string pattern
+  config.checks = [ { name: :redis, url: "redis://#{ENV.fetch('REDIS_HOST', 'localhost')}:#{ENV.fetch('REDIS_PORT', 6379)}" } ]
 end
 ```
 
-Then add to middleware within `config/application.rb` :
+Then add to middleware within `config/application.rb`, this should probably be the first Rack middleware loaded ahead of authentication:
 
 ```ruby
-  config.middleware.insert_after Rails::Rack::Logger, SystemInformation::SystemInformationMiddleware
+  config.middleware.use config.middleware.use SystemInformation::SystemInformationMiddleware
 ```
 
