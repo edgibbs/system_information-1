@@ -13,7 +13,7 @@ module SystemInformation
       let(:checks) { valid_health_check_names_test.valid_health_check_names }
 
       it 'has two valid checks' do
-        expect(checks.keys).to eq [:redis, :perry]
+        expect(checks.keys).to eq %i[redis perry]
         expect(checks.values).to eq [RedisHealthCheck, PerryHealthCheck]
       end
     end
