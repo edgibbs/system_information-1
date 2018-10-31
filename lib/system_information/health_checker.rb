@@ -18,7 +18,7 @@ module SystemInformation
     private
 
     def overall_health(health_checks)
-      health_checks.map(&:healthy).reduce(:&)
+      health_checks.any? && health_checks.map(&:healthy).reduce(:&)
     end
 
     def checker_class(name)

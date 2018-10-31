@@ -6,14 +6,24 @@ require 'json'
 module SystemInformation
   describe HealthCheckMessage do
     let(:health_check_message) { HealthCheckMessage.new(true, []) }
+    let(:configuration) do
+      config = Configuration.new
+      config.application = 'Example App'
+      config.version = '7.7.7'
+      config
+    end
+
+    before do
+      allow(SystemInformation).to receive(:configation).and_return(configuration)
+    end
 
     describe '#attribute' do
       it 'has an application name' do
-        expect(health_check_message.application).to eq 'CANS Web'
+        expect(health_check_message.application).to eq ''
       end
 
       it 'has a version' do
-        expect(health_check_message.version).to eq 'unknown'
+        expect(health_check_message.version).to eq ''
       end
 
       it 'has a health status' do
@@ -45,8 +55,8 @@ module SystemInformation
       let(:health_check_message) { HealthCheckMessage.new(true, health_checks) }
       let(:expected_json) do
         {
-          application: 'CANS Web',
-          version: 'unknown',
+          application: '',
+          version: '',
           health_status: true,
           health_checks: {
             redis: {

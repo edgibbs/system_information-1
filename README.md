@@ -42,6 +42,12 @@ SystemInformation.configure do |config|
 end
 ```
 
+The options include:
+
+* config.application - Name of the application
+* config.version = Version, optional currently
+* config.checks - Add any checks of dependent services following the format in the example
+
 Then add to middleware within `config/application.rb`, this should probably be the first Rack middleware loaded ahead of authentication:
 
 ```ruby
