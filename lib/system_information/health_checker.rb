@@ -4,6 +4,8 @@ require 'redis'
 
 module SystemInformation
   class HealthChecker
+    include ValidHealthCheckNames
+
     def check
       health_checks = []
       SystemInformation.configuration.checks.each do |check|
@@ -20,13 +22,7 @@ module SystemInformation
     end
 
     def checker_class(name)
-      checks[name]
-    end
-
-    def checks
-      {
-        redis: RedisHealthCheck
-      }
+      valid_health_check_names[name]
     end
   end
 end

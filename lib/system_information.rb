@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
+require 'system_information/health_check_errors'
+require 'system_information/valid_health_check_names'
 require 'system_information/configuration'
 require 'system_information/health_checker'
-require 'system_information/health_check_errors'
 require 'system_information/health_check_item'
 require 'system_information/health_check_message'
 require 'system_information/perry_health_check'
