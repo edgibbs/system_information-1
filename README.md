@@ -10,7 +10,7 @@ such as New Relic and load balancer checks. It returns JSON defined with in
 Add the following line to your Gemfile:
 
 ```ruby
-gem 'system_information'
+gem 'system_information', github: 'ca-cwds/system_information'
 ```
 
 And execute:
@@ -51,6 +51,9 @@ The options include:
 Then add to middleware within `config/application.rb`, this should probably be the first Rack middleware loaded ahead of authentication:
 
 ```ruby
-  config.middleware.use config.middleware.use SystemInformation::SystemInformationMiddleware
+  config.middleware.use SystemInformation::SystemInformationMiddleware
 ```
 
+## Questions
+
+If you have any questions regarding the contents of this repository, please email the Office of Systems Integration at FOSS@osi.ca.gov.
