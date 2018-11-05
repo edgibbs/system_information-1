@@ -6,7 +6,7 @@ require 'faraday'
 module SystemInformation
   describe FerbApiHealthCheck do
     describe '#check' do
-      let(:ferbapi_url) { 'http://ferbapi:8080/' }
+      let(:ferbapi_url) { 'http://ferbapi:8080' }
       let(:ferb_api_health_check) { FerbApiHealthCheck.new(ferbapi_url) }
 
       context 'when healthy' do
@@ -35,13 +35,13 @@ module SystemInformation
         end
 
         it 'sets an error message' do
-          expect(ferb_api_health_check.check.message).to eq 'ferb api returned 465'
+          expect(ferb_api_health_check.check.message).to eq 'ferbapi returned 468'
         end
       end
 
       context 'when throwing an error' do
         let(:error_message) do
-          'ferb api returned uncaught throw ' \
+          'ferbapi returned uncaught throw ' \
            '#<Faraday::ConnectionFailed #<Faraday::ConnectionFailed: fail>>'
         end
 
