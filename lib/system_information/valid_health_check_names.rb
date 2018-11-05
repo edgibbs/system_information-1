@@ -5,7 +5,8 @@ module SystemInformation
     def valid_health_check_names
       {
         redis: RedisHealthCheck,
-        perry: PerryHealthCheck
+        perry: PerryHealthCheck,
+        ferbapi: FerbApiHealthCheck
       }
     end
   end
