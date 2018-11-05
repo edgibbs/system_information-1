@@ -6,7 +6,7 @@ require 'faraday'
 module SystemInformation
   describe FerbApiHealthCheck do
     describe '#check' do
-      let(:ferbapi_url) { 'http://ferbapi:8080' }
+      let(:ferbapi_url) { 'http://ferbapi:8080/' }
       let(:ferb_api_health_check) { FerbApiHealthCheck.new(ferbapi_url) }
 
       context 'when healthy' do
