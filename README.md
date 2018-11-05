@@ -23,7 +23,7 @@ bundle
 
 * `:redis`   - checks if Redis is available with a ping
 * `:perry`   - checks if Perry is available according to its health check
-* `:ferbapi` - checks if ferb api is avilable according to its healt check
+* `:ferbapi` - checks if Ferb API is avilable according to its health check
 
 ## Configuration
 

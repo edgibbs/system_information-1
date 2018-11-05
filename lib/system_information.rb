@@ -3,6 +3,7 @@
 require 'system_information/health_check_errors'
 require 'system_information/valid_health_check_names'
 require 'system_information/configuration'
+require 'system_information/ferb_api_health_check'
 require 'system_information/health_checker'
 require 'system_information/health_check_item'
 require 'system_information/health_check_message'
@@ -10,7 +11,6 @@ require 'system_information/perry_health_check'
 require 'system_information/redis_health_check'
 require 'system_information/system_information_middleware'
 require 'system_information/version'
-require 'system_information/ferb_api_health_check'
 
 module SystemInformation
   # rubocop:disable Lint/DuplicateMethods
