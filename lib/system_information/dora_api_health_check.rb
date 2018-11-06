@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
 module SystemInformation
-  class FerbApiHealthCheck
+  class DoraApiHealthCheck
     include HealthCheckErrors
 
     def initialize(url = 'http://localhost:8080')
-      @ferbapi_url = url
+      @doraapi_url = url
     end
 
     def check
-      item = HealthCheckItem.new(:ferb_api, true)
+      item = HealthCheckItem.new(:dora_api, true)
       begin
-        response = Faraday.get @ferbapi_url
+        response = Faraday.get @doraapi_url
         set_error_status(item, response.status) unless response.status == 200
       rescue StandardError => error
         set_error_status(item, error.message)
