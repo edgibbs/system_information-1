@@ -9,7 +9,7 @@ module SystemInformation
     end
 
     def check
-      item = HealthCheckItem.new(:ferbapi, true)
+      item = HealthCheckItem.new(:ferb_api, true)
       begin
         response = Faraday.get @ferbapi_url
         set_error_status(item, response.status) unless response.status == 200

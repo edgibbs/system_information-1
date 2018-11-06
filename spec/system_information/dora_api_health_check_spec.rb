@@ -35,13 +35,13 @@ module SystemInformation
         end
 
         it 'sets an error message' do
-          expect(dora_api_health_check.check.message).to eq 'doraapi returned 468'
+          expect(dora_api_health_check.check.message).to eq 'dora_api returned 468'
         end
       end
 
       context 'when throwing an error' do
         let(:error_message) do
-          'doraapi returned uncaught throw ' \
+          'dora_api returned uncaught throw ' \
            '#<Faraday::ConnectionFailed #<Faraday::ConnectionFailed: fail>>'
         end
 

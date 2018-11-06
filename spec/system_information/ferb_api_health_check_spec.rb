@@ -35,13 +35,13 @@ module SystemInformation
         end
 
         it 'sets an error message' do
-          expect(ferb_api_health_check.check.message).to eq 'ferbapi returned 468'
+          expect(ferb_api_health_check.check.message).to eq 'ferb_api returned 468'
         end
       end
 
       context 'when throwing an error' do
         let(:error_message) do
-          'ferbapi returned uncaught throw ' \
+          'ferb_api returned uncaught throw ' \
            '#<Faraday::ConnectionFailed #<Faraday::ConnectionFailed: fail>>'
         end
 

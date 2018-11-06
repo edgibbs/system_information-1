@@ -6,8 +6,8 @@ module SystemInformation
       {
         redis: RedisHealthCheck,
         perry: PerryHealthCheck,
-        ferbapi: FerbApiHealthCheck,
-        doraapi: DoraApiHealthCheck
+        ferb_api: FerbApiHealthCheck,
+        dora_api: DoraApiHealthCheck
       }
     end
   end

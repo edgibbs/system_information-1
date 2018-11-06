@@ -9,7 +9,7 @@ module SystemInformation
     end
 
     def check
-      item = HealthCheckItem.new(:doraapi, true)
+      item = HealthCheckItem.new(:dora_api, true)
       begin
         response = Faraday.get @doraapi_url
         set_error_status(item, response.status) unless response.status == 200
