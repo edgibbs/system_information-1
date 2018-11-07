@@ -8,7 +8,8 @@ module SystemInformation
         perry: PerryHealthCheck,
         cals_api: CalsApiHealthCheck,
         dora_api: DoraApiHealthCheck,
-        ferb_api: FerbApiHealthCheck
+        ferb_api: FerbApiHealthCheck,
+        geo_api: GeoApiHealthCheck
       }
     end
   end
