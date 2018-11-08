@@ -21,10 +21,12 @@ bundle
 
 ## Checks
 
-* `:redis`   - checks if Redis is available with a ping
-* `:perry`   - checks if Perry is available according to its health check
-* `:ferb_api` - checks if Ferb API is avilable according to its health check
-* `:dora_api` - checks if Dora API is avilable according to its health check
+* `:redis`     - checks if Redis is available with a ping
+* `:perry`     - checks if Perry is available according to its health check
+* `:cals_api`  - checks if Cals API is avilable according to its health check
+* `:ferb_api`  - checks if Ferb API is avilable according to its health check
+* `:dora_api`  - checks if Dora API is avilable according to its health check
+* `:geo_api`   - checks of Geo API is avilable according to its health check
 
 ## Configuration
 
@@ -40,8 +42,10 @@ SystemInformation.configure do |config|
     [
       { name: :redis,   url: "redis://#{ENV.fetch('REDIS_HOST', 'localhost')}:#{ENV.fetch('REDIS_PORT', 6379)}" },
       { name: :perry,   url: "#{ENV.fetch('PERRY_BASE_URL', 'http://localhost/perry')}/system-information" },
+      { name: :cals_api, url: "#{ENV.fetch('CALS_API_URL', 'http://localhost/cals')}/system-information" },
+      { name: :dora_api, url: "#{ENV.fetch('DORA_API_URL', 'http://localhost/dora')}/system-information" },
       { name: :ferb_api, url: "#{ENV.fetch('FERB_API_URL', 'http://localhost/ferb')}/system-information" },
-      { name: :dora_api, url: "#{ENV.fetch('DORA_API_URL', 'http://localhost/dora')}/system-information" }
+      { name: :geo_api, url: "#{ENV.fetch('GEO_SERVICE_URL', 'http://localhost/geo')}/system-information" }
     ]
 end
 ```
