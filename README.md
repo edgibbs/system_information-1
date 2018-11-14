@@ -24,7 +24,7 @@ bundle
 * `:redis`     - checks if Redis is available with a ping
 * `:perry`     - checks if Perry is available according to its health check
 * `:cals_api`  - checks if Cals API is avilable according to its health check
-* `:cans-api`  - checks if Cans API is avilable according to its health check
+* `:cans_api`  - checks if Cans API is avilable according to its health check
 * `:ferb_api`  - checks if Ferb API is avilable according to its health check
 * `:dora_api`  - checks if Dora API is avilable according to its health check
 * `:geo_api`   - checks of Geo API is avilable according to its health check
